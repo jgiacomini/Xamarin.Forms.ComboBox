@@ -107,6 +107,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="ComboBoxRenderer.cs" />
+    <Compile Include="ConvertExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Xamarin.Forms.ComboBox.Platform.UAP.rd.xml" />
   </ItemGroup>

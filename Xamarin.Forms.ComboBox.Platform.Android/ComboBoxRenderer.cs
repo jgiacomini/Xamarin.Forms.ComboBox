@@ -1,5 +1,4 @@
 ﻿using Android.Content;
-using Android.Support.V7.Content.Res;
 using Android.Support.V7.Widget;
 using Android.Widget;
 using System.ComponentModel;
@@ -57,9 +56,15 @@ namespace Xamarin.Forms.ComboBox
             {
                 UpdateSelectedIndex();
             }
+            else if (e.PropertyName == Picker.TextColorProperty.PropertyName)
+            {
+                UpdateTextColor();
+            }
 
             base.OnElementPropertyChanged(sender, e);
         }
+
+
 
         private void Element_SelectedIndexChanged(object sender, System.EventArgs e)
         {
@@ -86,6 +91,10 @@ namespace Xamarin.Forms.ComboBox
             {
                 Element.SelectedIndex = Control.SelectedItemPosition;
             }
+        }
+
+        private void UpdateTextColor()
+        {
         }
 
         protected override AppCompatSpinner CreateNativeControl()

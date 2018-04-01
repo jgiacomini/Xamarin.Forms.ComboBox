@@ -6,7 +6,6 @@
              x:Class="Sample.MainPage">
     <ScrollView>
         <Grid>
-
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
@@ -16,13 +15,15 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Label Text="Ma combo box" 
-               x:Name="lbl_combo1"/>
+                   x:Name="lbl_combo1"/>
             <control:ComboBox
-            Grid.Row="1"
-            x:Name="_comboBox1"
-            SelectedIndexChanged="Combo1_SelectedIndexChanged"
-            ItemsSource="{Binding List}"
-            SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"/>
+                Grid.Row="1"
+                x:Name="_comboBox1"
+                TextColor="Red"
+                SelectedIndexChanged="Combo1_SelectedIndexChanged"
+                BackgroundColor="Blue"
+                ItemsSource="{Binding List}"
+                SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"/>
 
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
@@ -36,15 +37,17 @@
             </Grid>
 
             <Label 
-            Text="Ma combo box"
-            Grid.Row="3"
-            x:Name="lbl_combo2"/>
+                Text="Ma combo box"
+                Grid.Row="3"
+                x:Name="lbl_combo2"/>
             <control:ComboBox
-            Grid.Row="4"
-            x:Name="_comboBox2"
-            SelectedIndexChanged="Combo2_SelectedIndexChanged"
-            ItemsSource="{Binding List2}"
-            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"/>
+                Grid.Row="4"
+                x:Name="_comboBox2"
+                SelectedIndexChanged="Combo2_SelectedIndexChanged"
+                BackgroundColor="Blue"
+                TextColor="Red"
+                ItemsSource="{Binding List2}"
+                SelectedItem="{Binding SelectedItem, Mode=TwoWay}"/>
 
             <Grid Grid.Row="5">
                 <Grid.RowDefinitions>

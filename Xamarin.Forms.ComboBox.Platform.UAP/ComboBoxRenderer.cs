@@ -37,6 +37,7 @@ namespace Xamarin.Forms.ComboBox
                     SetNativeControl(comboBox);
                     Element.SelectedIndexChanged += Element_SelectedIndexChanged;
                     UpdateSelectedIndex();
+                    UpdateTextColor();
                 }
             }
         }
@@ -51,6 +52,10 @@ namespace Xamarin.Forms.ComboBox
             if (e.PropertyName == Picker.SelectedIndexProperty.PropertyName)
             {
                 UpdateSelectedIndex();
+            }
+            else if (e.PropertyName == Picker.TextColorProperty.PropertyName)
+            {
+                UpdateTextColor();
             }
 
             base.OnElementPropertyChanged(sender, e);
@@ -77,7 +82,10 @@ namespace Xamarin.Forms.ComboBox
             {
                 Element.SelectedIndex = Control.SelectedIndex;
             }
-
+        }
+        private void UpdateTextColor()
+        {
+            Control.Foreground = Element.TextColor.ToBrush();
         }
 
         protected Windows.UI.Xaml.Controls.ComboBox CreateNativeControl()

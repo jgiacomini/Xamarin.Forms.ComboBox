@@ -10,17 +10,10 @@ namespace Xamarin.Forms.ComboBox
         #region Dependency property
         public static readonly BindableProperty TextColorProperty =
             BindableProperty.Create(
-                nameof(Title),
+                nameof(TextColor),
                 typeof(Color),
                 typeof(ComboBox),
                 default(Color));
-
-        public static readonly BindableProperty TitleProperty =
-            BindableProperty.Create(
-                nameof(Title),
-                typeof(string),
-                typeof(ComboBox),
-                default(string));
 
         public static readonly BindableProperty SelectedIndexProperty =
             BindableProperty.Create(
@@ -73,12 +66,6 @@ namespace Xamarin.Forms.ComboBox
         {
             get { return (Color)GetValue(TextColorProperty); }
             set { SetValue(TextColorProperty, value); }
-        }
-
-        public string Title
-        {
-            get { return (string)GetValue(TitleProperty); }
-            set { SetValue(TitleProperty, value); }
         }
         #endregion
 
