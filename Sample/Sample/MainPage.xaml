@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Sample"
+             xmlns:control="clr-namespace:Xamarin.Forms.ComboBox;assembly=Xamarin.Forms.ComboBox"
+             x:Class="Sample.MainPage">
+    <ScrollView>
+        <Grid>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Label Text="Ma combo box" 
+               x:Name="lbl_combo1"/>
+            <control:ComboBox
+            Grid.Row="1"
+            x:Name="_comboBox1"
+            SelectedIndexChanged="Combo1_SelectedIndexChanged"
+            ItemsSource="{Binding List}"
+            SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"/>
+
+            <Grid Grid.Row="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Button Text="Select Index 1" Clicked="Index1_Clicked"/>
+                <Button Text="Select Index 2" Clicked="Index2_Clicked" Grid.Row="1"/>
+                <Button Text="Select Index 3" Clicked="Index3_Clicked" Grid.Row="2"/>
+            </Grid>
+
+            <Label 
+            Text="Ma combo box"
+            Grid.Row="3"
+            x:Name="lbl_combo2"/>
+            <control:ComboBox
+            Grid.Row="4"
+            x:Name="_comboBox2"
+            SelectedIndexChanged="Combo2_SelectedIndexChanged"
+            ItemsSource="{Binding List2}"
+            SelectedItem="{Binding SelectedItem, Mode=TwoWay}"/>
+
+            <Grid Grid.Row="5">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Button Text="Select Item 1" Clicked="Item1_Clicked"/>
+                <Button Text="Select Item 2" Clicked="Item2_Clicked" Grid.Row="1"/>
+                <Button Text="Select Item 3" Clicked="Item3_Clicked" Grid.Row="2"/>
+            </Grid>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>
