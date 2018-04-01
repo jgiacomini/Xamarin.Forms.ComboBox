@@ -1,16 +1,11 @@
 ﻿using Sample.ViewModel;
 using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.ComboBox;
 
 namespace Sample
 {
-	public partial class MainPage : ContentPage
+    public partial class MainPage : ContentPage
 	{
 		public MainPage()
 		{
@@ -51,13 +46,11 @@ namespace Sample
 
         private void Combo1_SelectedIndexChanged(object sender, SelectedIndexChangedEventArgs e)
         {
-            Debug.WriteLine($"Combo1 old index : {e.OldIndex} new index : {e.NewIndex}");
-            lbl_combo1.Text = $"Combo1 old index : {e.OldIndex} new index : {e.NewIndex}. Selected Item {_comboBox1.SelectedItem}";
+            lbl_combo1.Text = $"Combo1 old index : {e.OldIndex} new index : {e.NewIndex}. Selected Item '{_comboBox1.SelectedItem}'";
         }
         private void Combo2_SelectedIndexChanged(object sender, SelectedIndexChangedEventArgs e)
         {
-            Debug.WriteLine($"Combo2 old index : {e.OldIndex} new index : {e.NewIndex}");
-            lbl_combo2.Text = $"Combo1 old index : {e.OldIndex} new index : {e.NewIndex}. Selected Item {_comboBox2.SelectedItem}";
+            lbl_combo2.Text = $"Combo1 old index : {e.OldIndex} new index : {e.NewIndex}. Selected Item '{_comboBox2.SelectedItem}'";
         }
     }
 }

@@ -90,7 +90,12 @@ namespace Xamarin.Forms.ComboBox
         static object CoerceSelectedIndex(BindableObject bindable, object value)
         {
             var comboBox = (ComboBox)bindable;
-            return comboBox.ItemsSource == null ? -1 : ((int)value).Clamp(-1, comboBox.ItemsSource.Count - 1);
+            if (value is int)
+            {
+                return comboBox.ItemsSource == null ? -1 : ((int)value).Clamp(-1, comboBox.ItemsSource.Count - 1);
+            }
+
+            throw new InvalidOperationException("Selected Index must be an interger");
         }
 
         static void OnSelectedIndexChanged(object bindable, object oldValue, object newValue)

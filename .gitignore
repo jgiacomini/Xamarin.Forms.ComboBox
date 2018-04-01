@@ -2,16 +2,7 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/.vs
-/packages
-/Sample/Sample/obj
-/Sample/Sample.Android/bin/Debug
-/Sample/Sample.Android/obj
-/Sample/Sample.iOS/obj
-/Sample/Sample.UWP/bin/x86/Debug/AppX
-/Sample/Sample.UWP/obj
-/Xamarin.Forms.ComboBox/.vs/Xamarin.Forms.ComboBox/v15
-/Xamarin.Forms.ComboBox/obj
-/Xamarin.Forms.ComboBox.Platform.Android/obj/Debug
-/Xamarin.Forms.ComboBox.Platform.UAP/obj
-/Xamarin.Forms.ComboBox.Platform.UAP/bin/x86/Debug
+.vs
+bin
+obj
+packages

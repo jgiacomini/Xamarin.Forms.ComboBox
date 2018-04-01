@@ -86,12 +86,13 @@ namespace Xamarin.Forms.ComboBox
             {
                 Element.SelectedIndex = Control.SelectedItemPosition;
             }
-            
         }
 
         protected override AppCompatSpinner CreateNativeControl()
         {
-           var spinner = new AppCompatSpinner(Context, null, global::Android.Resource.Style.WidgetSpinnerDropDown)
+            // Base.Widget.AppCompat.Spinner.Underlined
+           // , null, global::Android.Resource.Style.WidgetSpinnerDropDown
+           var spinner = new AppCompatSpinner(Context)
             {
                 Focusable = true,
                 Clickable = true,
