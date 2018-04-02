@@ -19,14 +19,15 @@
             <control:ComboBox
                 Grid.Row="1"
                 x:Name="_comboBox1"
-                TextColor="Red"
+                TextColor="{Binding Path=TextColor}"
                 SelectedIndexChanged="Combo1_SelectedIndexChanged"
                 BackgroundColor="Blue"
-                ItemsSource="{Binding List}"
-                SelectedIndex="{Binding SelectedIndex, Mode=TwoWay}"/>
+                ItemsSource="{Binding Path=List, Mode=OneWay}"
+                SelectedIndex="{Binding Path=SelectedIndex, Mode=TwoWay}"/>
 
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -34,6 +35,7 @@
                 <Button Text="Select Index 1" Clicked="Index1_Clicked"/>
                 <Button Text="Select Index 2" Clicked="Index2_Clicked" Grid.Row="1"/>
                 <Button Text="Select Index 3" Clicked="Index3_Clicked" Grid.Row="2"/>
+                <Button Text="Change Color" Command="{Binding Path=ChangeTextColorCommand,Mode=OneWay}" Grid.Row="3"/>
             </Grid>
 
             <Label 
@@ -46,8 +48,8 @@
                 SelectedIndexChanged="Combo2_SelectedIndexChanged"
                 BackgroundColor="Blue"
                 TextColor="Red"
-                ItemsSource="{Binding List2}"
-                SelectedItem="{Binding SelectedItem, Mode=TwoWay}"/>
+                ItemsSource="{Binding Path=List2, Mode=OneWay}"
+                SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}"/>
 
             <Grid Grid.Row="5">
                 <Grid.RowDefinitions>

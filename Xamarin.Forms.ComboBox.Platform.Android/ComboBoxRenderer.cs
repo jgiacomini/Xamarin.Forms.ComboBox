@@ -1,5 +1,4 @@
 ﻿using Android.Content;
-using Android.Support.V7.Widget;
 using Android.Widget;
 using System.ComponentModel;
 using Xamarin.Forms;
@@ -8,7 +7,7 @@ using Xamarin.Forms.Platform.Android;
 [assembly: ExportRenderer(typeof(ComboBox), typeof(ComboBoxRenderer))]
 namespace Xamarin.Forms.ComboBox
 {
-    public class ComboBoxRenderer : ViewRenderer<ComboBox, AppCompatSpinner>
+    public class ComboBoxRenderer : ViewRenderer<ComboBox, FormsSpinner>
     {
         #region Fields
         private bool _isDisposed;
@@ -39,13 +38,14 @@ namespace Xamarin.Forms.ComboBox
                     }
                     else
                     {
-                        ArrayAdapter adapter = new ArrayAdapter(Context, global::Android.Resource.Layout.SimpleSpinnerItem, items);
-                        spinner.Adapter = adapter;
+                        // spinner.Adapter = new ArrayAdapter(Context, global::Android.Resource.Layout.SimpleSpinnerItem, items);
+                        spinner.Adapter = new FormsSpinnerAdapter(Context, items, Element.TextColor.ToAndroid());
                     }
 
                     SetNativeControl(spinner);
                     Element.SelectedIndexChanged += Element_SelectedIndexChanged;
                     UpdateSelectedIndex();
+                    UpdateTextColor();
                 }
             }
         }
@@ -63,8 +63,6 @@ namespace Xamarin.Forms.ComboBox
 
             base.OnElementPropertyChanged(sender, e);
         }
-
-
 
         private void Element_SelectedIndexChanged(object sender, System.EventArgs e)
         {
@@ -95,13 +93,18 @@ namespace Xamarin.Forms.ComboBox
 
         private void UpdateTextColor()
         {
+            var adapter = Control.Adapter as FormsSpinnerAdapter;
+            if (adapter != null)
+            {
+                adapter.TextColor = Element.TextColor.ToAndroid();
+            }
         }
 
-        protected override AppCompatSpinner CreateNativeControl()
+        protected override FormsSpinner CreateNativeControl()
         {
             // Base.Widget.AppCompat.Spinner.Underlined
            // , null, global::Android.Resource.Style.WidgetSpinnerDropDown
-           var spinner = new AppCompatSpinner(Context)
+           var spinner = new FormsSpinner(Context)
             {
                 Focusable = true,
                 Clickable = true,

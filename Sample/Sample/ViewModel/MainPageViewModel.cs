@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace Sample.ViewModel
 {
@@ -9,6 +11,7 @@ namespace Sample.ViewModel
     {
         private int _selectedIndex;
         private string _selectedItem;
+        private Color _textColor = Color.Red;
 
         public MainPageViewModel()
         {
@@ -26,6 +29,7 @@ namespace Sample.ViewModel
                 "Three"
             };
             SelectedIndex = 1;
+            ChangeTextColorCommand = new Command(ChangeColor);
         }
 
         public int SelectedIndex
@@ -64,6 +68,39 @@ namespace Sample.ViewModel
         public List<string> List { get; private set; }
         public List<string> List2 { get; private set; }
 
+        public Color TextColor
+        {
+            get
+            {
+                return _textColor;
+            }
+            set
+            {
+                if(_textColor != value)
+                {
+                    _textColor = value;
+
+                    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(TextColor)));
+                }
+            }
+        }
+
+        public ICommand ChangeTextColorCommand
+        {
+            get;
+        }
+
+        void ChangeColor()
+        {
+            if (TextColor == Color.Red)
+            {
+                TextColor = Color.Pink;
+            }
+            else
+            {
+                TextColor = Color.Red;
+            }
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
     }

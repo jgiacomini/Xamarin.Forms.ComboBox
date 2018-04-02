@@ -111,6 +111,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComboBoxRenderer.cs" />
+    <Compile Include="FormsSpinnerAdapter.cs" />
+    <Compile Include="FormsSpinner.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

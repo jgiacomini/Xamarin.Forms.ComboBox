@@ -83,6 +83,7 @@ namespace Xamarin.Forms.ComboBox
                 Element.SelectedIndex = Control.SelectedIndex;
             }
         }
+
         private void UpdateTextColor()
         {
             Control.Foreground = Element.TextColor.ToBrush();
